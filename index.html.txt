@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarvie.ai</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+min-height:100vh;
+}
+
+header{
+text-align:center;
+padding:40px 20px;
+}
+
+h1{
+font-size:3rem;
+color:#60a5fa;
+}
+
+.creator{
+color:#cbd5e1;
+margin-top:10px;
+}
+
+.chat-container{
+max-width:800px;
+margin:20px auto;
+background:#1e293b;
+border-radius:15px;
+padding:20px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+}
+
+#chatbox{
+height:400px;
+overflow-y:auto;
+border:1px solid #334155;
+border-radius:10px;
+padding:15px;
+margin-bottom:15px;
+}
+
+.message{
+margin:10px 0;
+padding:10px;
+border-radius:10px;
+}
+
+.user{
+background:#2563eb;
+text-align:right;
+}
+
+.ai{
+background:#334155;
+}
+
+.input-area{
+display:flex;
+gap:10px;
+}
+
+input{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#3b82f6;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#2563eb;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Jarvie.ai</h1>
+<p class="creator">Diciptakan oleh Fazela Alya Saputri</p>
+</header>
+
+<div class="chat-container">
+<div id="chatbox">
+<div class="message ai">
+Halo! Saya Jarvie.ai. Ada yang bisa saya bantu?
+</div>
+</div>
+
+<div class="input-area">
+<input type="text" id="userInput" placeholder="Tulis pertanyaan...">
+<button onclick="sendMessage()">Kirim</button>
+</div>
+</div>
+
+<script>
+function sendMessage() {
+const input = document.getElementById("userInput");
+const chatbox = document.getElementById("chatbox");
+
+if(input.value.trim() === "") return;
+
+chatbox.innerHTML += `
+<div class="message user">${input.value}</div>
+`;
+
+let reply = "Saya Jarvie.ai. Untuk membuat AI sungguhan, hubungkan website ini ke API AI seperti OpenAI atau model AI lainnya.";
+
+chatbox.innerHTML += `
+<div class="message ai">${reply}</div>
+`;
+
+input.value = "";
+chatbox.scrollTop = chatbox.scrollHeight;
+}
+</script>
+
+</body>
+</html>
